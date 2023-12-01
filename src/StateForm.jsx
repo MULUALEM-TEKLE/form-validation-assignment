@@ -32,7 +32,7 @@ export function StateForm() {
 	return (
 		<>
 			<form onSubmit={handleFormSubmit} className="form">
-				<div className="form-group error">
+				<div className={`form-group ${emailError ? "error" : ""}`}>
 					<label className="label" htmlFor="email">
 						Email
 					</label>
@@ -47,7 +47,7 @@ export function StateForm() {
 					/>
 					<div className="msg">{emailError}</div>
 				</div>
-				<div className="form-group">
+				<div className={`form-group ${passwordError ? "error" : ""}`}>
 					<label className="label" htmlFor="password">
 						Password
 					</label>
@@ -60,8 +60,8 @@ export function StateForm() {
 							setPassword(e.target.value)
 						}}
 					/>
+					<div className="msg">{passwordError}</div>
 				</div>
-				<div className="msg">{passwordError}</div>
 				<button className="btn" type="submit">
 					Submit
 				</button>
